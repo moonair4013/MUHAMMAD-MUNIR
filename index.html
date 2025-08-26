@@ -1,1 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatini Zahari Resume</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(247, 193, 193);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 50px;
+      color: #cc7a7a;
+      text-transform: uppercase;
+    }
+
+    .profile-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* Profile Image */
+    .imgBx {
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+
+    .imgBx img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Content */
+    .content {
+      flex: 1;
+    }
+
+    /* Section Titles */
+    h2 {
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .skills, .languages {
+      margin: 10px 0;
+    }
+
+    /* Skill Bars */
+    .skill-bar {
+      background-color: #f1f1f1;
+      border-radius: 5px;
+      overflow: hidden;
+      height: 20px;
+      margin-bottom: 10px;
+    }
+
+    .progress {
+      background-color: #4caf50;
+      height: 100%;
+      text-align: center;
+      line-height: 20px;
+      color: white;
+    }
+
+    /* Lists */
+    .projects ul, .extracurricular ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .skills ul, .languages ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .skills ul, .projects ul, .extracurricular ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .skills li, .projects li, .extracurricular li {
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+
+    /* References */
+    .references {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .references div {
+      background-color: #f9f9f9;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #222;
+      color: white;
+      margin-top: 20px;
+    }
+
+    footer p {
+      color: #f39c12;
+    }
+
+    footer i {
+      margin: 5px;
+      color: #3498db;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    footer i:hover {
+      color: #4CAF50;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .profile-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .imgBx {
+        width: 80px;
+        height: 80px;
+      }
+      .skills ul, .projects ul, .extracurricular ul, .languages ul {
+        grid-template-columns: 1fr;
+      }
+      .references {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #cc7a7a;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .navbar a, .dropdown-btn {
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 20px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .navbar a:hover, .dropdown:hover .dropdown-btn {
+      background: #b35c5c;
+      border-radius: 6px;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 250px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      border-radius: 6px;
+      z-index: 1001;
+    }
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Panel -->
+  <div class="navbar">
+    <a href="#objective"><i class="fa fa-bullseye"></i> Objective</a>
+    <a href="#education"><i class="fa fa-graduation-cap"></i> Education</a>
+    <a href="#experience"><i class="fa fa-briefcase"></i> Experience</a>
+    <a href="#skills"><i class="fa fa-cogs"></i> Skills</a>
+
+    <!-- Projects Dropdown -->
+    <div class="dropdown">
+      <a href="#projects" class="dropdown-btn"><i class="fa fa-trophy"></i> Projects ▾</a>
+      <div class="dropdown-content">
+        <a href="projects/project1.html">Species Recognition of Blue Aquatic Vision</a>
+        <a href="projects/project2.html">Face Recognition for User Authentication</a>
+        <a href="projects/project3.html">Internship (Industrial Training)</a>
+        <a href="projects/project4.html">Cybersecurity Hackathon (Best Group)</a>
+        <a href="projects/project5.html">Final Year Project (QR Code Subsidy System)</a>
+      </div>
+    </div>
+
+    <a href="#extracurricular"><i class="fa fa-users"></i> Extracurricular</a>
+    <a href="#references"><i class="fa fa-address-book"></i> References</a>
+  </div>
+
+  <!-- Header -->
+  <div class="container">
+    <div class="header">
+      <h1>Fatini Zahari</h1>
+    </div>
+
+    <div class="profile-container">
+      <div class="imgBx">
+        <img src="211069.jpg" alt="Fatini Zahari">
+      </div>
+      <div class="content">
+        
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <div><i class="fa fa-envelope"></i> <strong>Email:</strong> nurfatini248@gmail.com</div>
+          <div><i class="fa fa-phone"></i> <strong>Phone:</strong> +60 19317 3018</div>
+          <div><i class="fa fa-map-marker"></i> <strong>Location:</strong> Semenyih, Selangor</div>
+        </div>
+
+        <!-- Objective -->
+        <h2 id="objective"><i class="fa fa-bullseye"></i> Objective</h2>
+        <div class="section">
+          <p>I am an extraordinary Graduated of Bachelor of Computer and Communication Systems Engineering at Universiti Putra Malaysia (UPM), seeking full-time opportunities post-graduation. With strong skills in programming, hardware design, and data analysis, I’m ready to tackle real-world challenges and contribute to cutting-edge innovations.</p>
+        </div>
+
+        <!-- Education -->
+        <h2 id="education"><i class="fa fa-graduation-cap"></i> Education</h2>
+        <div class="section">
+          <p><strong>University Putra Malaysia</strong> - Bachelor of Computer & Communication Systems Engineering with Honours</p>
+          <p>Dean's list in first semester</p>
+          <p>Graduated: September 2025</p>
+          <p><strong>Selangor Matriculation</strong> - CGPA: 3.83</p>
+          <p>Graduated: July 2021</p>
+        </div>
+
+        <!-- Experience -->
+        <h2 id="experience"><i class="fa fa-briefcase"></i> Experience</h2>
+        <div class="section">
+          <p><strong>Oppstar Technology</strong> - Internship (July - October 2024)</p>
+          <p>Automated software testing with TESTAR, integrating SUT environments and generating reports.</p>
+
+          <p><strong>Hyrim Sdn Bhd</strong> - Web Developer (July - October 2021)</p>
+          <p>Customized and developed WordPress themes and plugins, integrating third-party solutions.</p>
+          
+          <p><strong>Cleverland Playschool</strong> - Part-Time Teacher (July - October 2023)</p>
+          <p>Set up and managed science experiments and hands-on IT activities for children.</p>
+        </div>
+
+        <!-- Skills -->
+        <h2 id="skills"><i class="fa fa-cogs"></i> Skills</h2>
+        <div class="skills">
+          <p>Programming</p>
+          <div class="skill-bar"><div class="progress" style="width: 80%;">80%</div></div>
+
+          <p>Embedded Systems</p>
+          <div class="skill-bar"><div class="progress" style="width: 60%;">60%</div></div>
+
+          <p>Intelligence Systems</p>
+          <div class="skill-bar"><div class="progress" style="width: 65%;">65%</div></div>
+
+          <p>Wireless Network and Systems Engineering</p>
+          <div class="skill-bar"><div class="progress" style="width: 70%;">70%</div></div>
+
+          <p>Operating System</p>
+          <div class="skill-bar"><div class="progress" style="width: 60%;">60%</div></div>
+        </div>
+
+        <hr>
+
+        <!-- Languages -->
+        <h2><i class="fa fa-language"></i> Languages</h2>
+        <div class="languages">
+          <p>English</p>
+          <div class="skill-bar"><div class="progress" style="width: 100%;">Fluent</div></div>
+
+          <p>Malay</p>
+          <div class="skill-bar"><div class="progress" style="width: 100%;">Native%</div></div>
+        </div>
+
+        <!-- Projects -->
+        <h2 id="projects"><i class="fa fa-trophy"></i> Projects</h2>
+        <div class="projects">
+          <ul>
+            <li><a href="projects/project1.html">Species Recognition of Blue Aquatic Vision Project (UPM, 2024)</a></li>
+            <li><a href="projects/project2.html">Face Recognition for User Authentication (UPM, 2024)</a></li>
+            <li><a href="projects/project3.html">Internship (Industrial Training)</a></li>
+            <li><a href="projects/project4.html">Best Group in Cybersecurity Hackathon at Engineering Society Project</a></li>
+            <li><a href="projects/project5.html">Final Year Project "Citizen Verification System Access Controlled for Subsidized Items in Malaysia using QR Code"</a></li>
+          </ul>
+        </div>
+
+        <!-- Extracurricular -->
+        <h2 id="extracurricular"><i class="fa fa-users"></i> Extracurricular Activities</h2>
+        <div class="extracurricular">
+          <ul>
+            <li>Vice President Club of Computer and Commuincation Systems Engineering (2023-2024)</li>
+            <li>Chess UPM Sports Tournament (2022-2023)</li>
+            <li>UPM Community Tech Outreach Program (2021-2022)</li>
+            <li>Mentor, Science Computer & Peer Assistant Learning (PAL) Physics - Selangor Matriculation (2019-2021)</li>
+          </ul>
+        </div>
+
+        <!-- References -->
+        <h2 id="references"><i class="fa fa-address-book"></i> References</h2>
+        <div class="references">
+          <div>
+            <p><strong>Muhammad Ajwad Fitri Bin Md Halim</strong></p>
+            <p>Admin Executive | Hyrim Sdn Bhd</p>
+            <p><i class="fa fa-envelope"></i> Email: ajwadhalim29@gmail.com</p>
+          </div>
+          <div>
+            <p><strong>Prof Madya Siti Barirah Binti Ahmad Anas</strong></p>
+            <p>Lecturer | Universiti Putra Malaysia</p>
+            <p><i class="fa fa-envelope"></i> Email: barirah@upm.edu.my</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Find me on social media.</p>
+    <i class="fa fa-facebook"></i>
+    <i class="fa fa-instagram"></i>
+    <i class="fa fa-twitter"></i>
+    <i class="fa fa-linkedin"></i>
+  </footer>
+
+</body>
+</html>
